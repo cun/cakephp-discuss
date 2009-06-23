@@ -1,0 +1,79 @@
+.discussTopic {
+	float: left;
+	width: 70%;
+	border-right: 1px solid black;
+	padding: 5px;
+	margin-bottom: 2px;
+	min-height: 100px;
+}
+
+.discussTopicNumPosts {
+	float: left;
+	width: 5%;
+	border-right: 1px solid black;
+	padding: 5px;
+	margin-bottom: 2px;
+	min-height: 100px;
+	text-align: center;
+}
+
+.discussTopicLastPost {
+	width: 20%;
+	float: left;
+	text-align: center;
+	min-height: 80px;	
+	padding: 5px;
+}
+
+.discussPost {
+	float: left;
+	width: 70%;
+	border-right: 1px solid black;
+	padding: 5px;
+	margin-bottom: 2px;
+	min-height: 40px;
+}
+
+.discussPostNumReplies {
+	float: left;
+	width: 5%;
+	border-right: 1px solid black;
+	padding: 5px;
+	text-align: center;
+	min-height: 40px;	
+}
+
+.discussPostLastReply {
+	width: 20%;
+	float: left;
+	text-align: center;
+	padding: 5px;
+	min-height: 40px;	
+}
+
+label {
+	display: block;
+}
+
+input[type=text] {
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+textarea {
+	width: 600px;
+	height: 200px;
+}
+
+.discussPostDetailsUser {
+	float: left;	
+	width: 150px;
+	padding: 5px;
+}
+
+.discussPostDetails {
+	float: left;	
+	border-left: 1px solid black;
+	padding: 5px;
+	max-width: 800px;
+}
