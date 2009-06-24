@@ -12,7 +12,17 @@
 		<?php echo $topic['discuss_post_count']; ?>
 	</div>	
 	<div id="topicLastPost<?php echo $topic['id']; ?>" class="discussTopicLastPost">
+		<?php if (!empty($latestPosts[$topic['id']]['Parent'])) : ?>
+			<?php echo $html->link($latestPosts[$topic['id']]['Parent']['title'], '/discuss/discuss_posts/view/' . $latestPosts[$topic['id']]['Parent']['id']);?><br/>
+			<?php if (!empty($latestPosts[$topic['id']]['User']['username'])): ?>
+			Posted by <?php echo $latestPosts[$topic['id']]['User']['username']; ?><br/>
+			<?php else: ?>
+			Posted by Anonymous<br/>		
+			<?php endif; ?>
+			<?php echo $latestPosts[$topic['id']]['DiscussPost']['created']; ?>
+		<?php else: ?>
 		No Posts Yet
+		<?php endif; ?>
 	</div>
 	<div style="clear: both"></div>
 	<?php endforeach; ?>

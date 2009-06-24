@@ -14,7 +14,17 @@
 	<?php echo $post['DiscussPost']['discuss_post_count']; ?>
 </div>	
 <div id="postLastReply<?php echo $post['DiscussPost']['id']; ?>" class="discussPostLastReply">
+	<?php if (!empty($latestPosts[$post['DiscussPost']['id']]['Parent'])): ?>
+		<?php echo $html->link($latestPosts[$post['DiscussPost']['id']]['Parent']['title'], '/discuss/discuss_posts/view/' . $latestPosts[$post['DiscussPost']['id']]['Parent']['id']);?><br/>
+		<?php if (!empty($latestPosts[$post['DiscussPost']['id']]['User']['username'])): ?>
+		Posted by <?php echo $latestPosts[$post['DiscussPost']['id']]['User']['username']; ?><br/>
+		<?php else: ?>
+		Posted by Anonymous<br/>		
+		<?php endif; ?>
+		<?php echo $latestPosts[$post['DiscussPost']['id']]['DiscussPost']['created']; ?>	
+	<?php else: ?>
 	No Replies Yet
+	<?php endif; ?>
 </div>
 <div style="clear: both"></div>
 <?php endforeach; ?>
