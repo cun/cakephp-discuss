@@ -16,7 +16,7 @@ class DiscussTopicsController extends DiscussAppController {
 				'discuss_topic_id' => $id,
 				'parent_id IS NULL',
 			),
-			'order' => 'DiscussPost.created ASC',
+			'order' => 'DiscussPost.created DESC',
 		));
 		
 		// @TODO: Replace this count code with counterCache
