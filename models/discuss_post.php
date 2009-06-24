@@ -22,7 +22,7 @@ class DiscussPost extends DiscussAppModel {
 		),		
 		'Parent' => array(
 			'className' => 'Discuss.DiscussPost',
-			'foreignKey' => 'id',
+			'foreignKey' => 'parent_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',

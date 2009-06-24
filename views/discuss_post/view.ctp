@@ -1,7 +1,7 @@
 <h2><?php echo $this->data['DiscussPost']['title']; ?></h2>
 <div style="border-bottom: 1px solid black;"></div>
 <div id="postUser<?php echo $this->data['DiscussPost']['id']; ?>" class="discussPostDetailsUser">
-	<?php echo $html->image('/discuss/img/Person.gif'); ?><br/>
+	<?php echo $html->image('http://www.gravatar.com/avatar/' . md5($this->data['User']['email']) . '.jpg'); ?><br/>
 	
 	<?php if (!empty($this->data['User']['username'])): ?>
 	<strong><?php echo $this->data['User']['username'];?></strong>
@@ -23,7 +23,7 @@
 <?php foreach ($this->data['Reply'] as $post): ?>
 <div style="border-bottom: 1px solid black;"></div>
 <div id="postLastReply<?php echo $post['id']; ?>" class="discussPostDetailsUser">
-	<?php echo $html->image('/discuss/img/Person.gif'); ?><br/>
+	<?php echo $html->image('http://www.gravatar.com/avatar/' . md5($post['User']['email']) . '.jpg'); ?><br/>
 	<?php if (!empty($post['User']['username'])): ?>
 	<strong><?php echo $post['User']['username'];?></strong>
 	<?php else: ?>
