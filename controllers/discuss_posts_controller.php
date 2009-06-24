@@ -37,6 +37,9 @@ class DiscussPostsController extends DiscussAppController {
 	
 	function add() {
 		if (!empty($this->data)) {
+			// Prevent XSS
+			$this->data['DiscussPost']['content'] = htmlentities($this->data['DiscussPost']['content']); 
+			
 			$this->DiscussPost->create();
 			if ($this->DiscussPost->save($this->data)) {
 				$this->Session->setFlash('Post added successfully');

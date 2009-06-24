@@ -16,7 +16,7 @@
 	Posted by anonymous on <?php echo $this->data['DiscussPost']['created']; ?>
 	<?php endif; ?><br/><br/>
 	
-	<?php echo $this->data['DiscussPost']['content']; ?>
+	<?php echo nl2br($this->data['DiscussPost']['content']); ?>
 </div>
 <div style="clear: both"></div>
 
@@ -37,7 +37,7 @@
 	Posted by anonymous on <?php echo $post['created']; ?>
 	<?php endif; ?><br/><br/>
 	
-	<?php echo $post['content']; ?>
+	<?php echo nl2br($post['content']); ?>
 </div>
 <div style="clear: both"></div>
 <?php endforeach; ?>
