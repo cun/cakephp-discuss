@@ -5,9 +5,9 @@ class DiscussTopic extends DiscussAppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $belongsTo = array(
-		'DiscussCategory' => array(
-			'className' => 'Discuss.DiscussCategory',
-			'foreignKey' => 'discuss_category_id',
+		'DiscussForum' => array(
+			'className' => 'Discuss.DiscussForum',
+			'foreignKey' => 'discuss_forum_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -18,7 +18,7 @@ class DiscussTopic extends DiscussAppModel {
 		'DiscussPost' => array(
 			'className' => 'Discuss.DiscussPost',
 			'foreignKey' => 'discuss_topic_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
@@ -26,7 +26,7 @@ class DiscussTopic extends DiscussAppModel {
 			'offset' => '',
 			'exclusive' => '',
 			'finderQuery' => '',
-			'counterQuery' => '',
+			'counterQuery' => true,
 		)
 	);
 

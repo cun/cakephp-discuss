@@ -1,18 +1,17 @@
 <?php
-class DiscussCategoriesController extends DiscussAppController {
-	var $name = 'DiscussCategories';
-	var $uses = 'Discuss.DiscussCategory';
+class DiscussForumsController extends DiscussAppController {
+	var $name = 'DiscussForums';
 	
 	function index() {
-		$this->data = $this->DiscussCategory->find('all', array(
+		$this->data = $this->DiscussForum->find('all', array(
 			'contain' => array('DiscussTopic'),
 			'order' => 'id ASC',
 		));
 		
 		$latestPosts = array();
-		foreach ($this->data as $key => $category) {
-			foreach ($category['DiscussTopic'] as $topic) {
-				$latestPosts[$topic['id']] = $this->DiscussCategory->DiscussTopic->DiscussPost->find('first', array(
+		foreach ($this->data as $key => $forum) {
+			foreach ($forum['DiscussTopic'] as $topic) {
+				$latestPosts[$topic['id']] = $this->DiscussForum->DiscussTopic->DiscussPost->find('first', array(
 					'contain' => array(
 						'Parent',
 						'User',

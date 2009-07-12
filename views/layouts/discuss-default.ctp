@@ -14,7 +14,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $html->link(__('Discuss Plugin for CakePHP', true), '/discuss/discuss_categories'); ?></h1>
+			<h1><?php echo $html->link(__('Discuss Plugin for CakePHP', true), '/discuss/discuss_forums'); ?></h1>
 		</div>
 		<div id="content">
 			<?php $session->flash(); ?>

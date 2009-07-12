@@ -1,12 +1,11 @@
 <?php
 class DiscussTopicsController extends DiscussAppController {
 	var $name = 'DiscussTopics';
-	var $uses = 'Discuss.DiscussTopic';
 	
 	function view($id = null) {
 		if(!$id) {
 			$this->Session->setFlash('Invalid Topic!');
-			$this->redirect('/discuss/discuss_categories');
+			$this->redirect('/discuss/discuss_forums');
 		}
 		
 		$this->data = $this->DiscussTopic->DiscussPost->find('all', array(

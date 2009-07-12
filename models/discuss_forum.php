@@ -1,13 +1,13 @@
 <?php
-class DiscussCategory extends DiscussAppModel {
+class DiscussForum extends DiscussAppModel {
 
-	var $name = 'DiscussCategory';
+	var $name = 'DiscussForum';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $hasMany = array(
 		'DiscussTopic' => array(
 			'className' => 'Discuss.DiscussTopic',
-			'foreignKey' => 'discuss_category_id',
+			'foreignKey' => 'discuss_forum_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -19,6 +19,11 @@ class DiscussCategory extends DiscussAppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	var $actsAs = array(
+		'Tree',
+	);
+	
 
 }
 ?>

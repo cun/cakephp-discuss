@@ -1,8 +1,8 @@
-<?php foreach ($this->data as $category): ?>
-<?php if (count($category['DiscussTopic']) > 0): ?>
-<div id="category<?php echo $category['DiscussCategory']['id']; ?>" class="discussCategory">
-<h2><?php echo $category['DiscussCategory']['name']; ?></h2>
-	<?php foreach ($category['DiscussTopic'] as $topic): ?>
+<?php foreach ($this->data as $forum): ?>
+<?php if (count($forum['DiscussTopic']) > 0): ?>
+<div id="forum<?php echo $forum['DiscussForum']['id']; ?>" class="discussForum">
+<h2><?php echo $forum['DiscussForum']['name']; ?></h2>
+	<?php foreach ($forum['DiscussTopic'] as $topic): ?>
 	<div style="border-bottom: 1px solid black;"></div>
 	<div id="topic<?php echo $topic['id']; ?>" class="discussTopic">
 		<?php echo $html->link($topic['name'], '/discuss/discuss_topics/view/' . $topic['id']); ?><br/>

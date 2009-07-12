@@ -1,18 +1,17 @@
 <?php
 class DiscussPostsController extends DiscussAppController {
 	var $name = 'DiscussPost';
-	var $uses = 'Discuss.DiscussPost';
 	
 	function view($id = null) {
 		if(!$id) {
 			$this->Session->setFlash('Invalid Post ID');
-			$this->redirect('/discuss/discuss_categories');
+			$this->redirect('/discuss/discuss_forums');
 		}
 		
 		$id = (int)$id;
 		if ($id == 0) {
 			$this->Session->setFlash('Invalid Post ID');
-			$this->redirect('/discuss/discuss_categories');
+			$this->redirect('/discuss/discuss_forums');
 		}
 		
 		$this->data = $this->DiscussPost->find('first', array(
@@ -31,7 +30,7 @@ class DiscussPostsController extends DiscussAppController {
 		
 		if (empty($this->data)) {
 			$this->Session->setFlash('Invalid Post ID');
-			$this->redirect('/discuss/discuss_categories');
+			$this->redirect('/discuss/discuss_forums');
 		}
 	}
 	

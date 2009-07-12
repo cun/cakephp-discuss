@@ -16,10 +16,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `discuss_categories`
+-- Table structure for table `discuss_forums`
 --
 
-CREATE TABLE IF NOT EXISTS `discuss_categories` (
+CREATE TABLE IF NOT EXISTS `discuss_forums` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
@@ -28,13 +28,13 @@ CREATE TABLE IF NOT EXISTS `discuss_categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `discuss_categories`
+-- Dumping data for table `discuss_forums`
 --
 
-INSERT INTO `discuss_categories` (`id`, `name`, `created`, `modified`) VALUES
+INSERT INTO `discuss_forums` (`id`, `name`, `created`, `modified`) VALUES
 (1, 'General', '2009-06-23 12:06:04', '2009-06-23 12:06:04'),
-(2, 'Another Category', '2009-06-23 12:06:24', '2009-06-23 12:06:24'),
-(3, 'Yet Another Category', '2009-06-23 15:23:08', '2009-06-23 15:23:08');
+(2, 'Another forum', '2009-06-23 12:06:24', '2009-06-23 12:06:24'),
+(3, 'Yet Another forum', '2009-06-23 15:23:08', '2009-06-23 15:23:08');
 
 -- --------------------------------------------------------
 
@@ -72,21 +72,21 @@ INSERT INTO `discuss_posts` (`id`, `user_id`, `discuss_topic_id`, `parent_id`, `
 
 CREATE TABLE IF NOT EXISTS `discuss_topics` (
   `id` int(11) NOT NULL auto_increment,
-  `discuss_category_id` int(11) default NULL,
+  `discuss_forum_id` int(11) default NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `discuss_post_count` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`),
-  KEY `fk_discuss_topics_discuss_categories` (`discuss_category_id`)
+  KEY `fk_discuss_topics_discuss_forums` (`discuss_forum_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `discuss_topics`
 --
 
-INSERT INTO `discuss_topics` (`id`, `discuss_category_id`, `name`, `description`, `discuss_post_count`, `created`, `modified`) VALUES
+INSERT INTO `discuss_topics` (`id`, `discuss_forum_id`, `name`, `description`, `discuss_post_count`, `created`, `modified`) VALUES
 (1, 1, 'News', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, lacus ut tempor tempor, massa erat dictum felis, ac accumsan odio tellus eget justo. Cras nibh nulla, accumsan a elementum eu, dictum ut orci. Donec vitae nibh erat, sed tincidunt dolor. Vivamus nisi orci, scelerisque et pharetra in, lobortis in est.', 1, '2009-06-23 12:24:43', '2009-06-23 12:24:43'),
 (2, 1, 'Feedback', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, lacus ut tempor tempor, massa erat dictum felis, ac accumsan odio tellus eget justo. Cras nibh nulla, accumsan a elementum eu, dictum ut orci. Donec vitae nibh erat, sed tincidunt dolor. Vivamus nisi orci, scelerisque et pharetra in, lobortis in est.', 0, '2009-06-23 12:24:43', '2009-06-23 12:24:43'),
 (3, 3, 'Developer Chat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum, lacus ut tempor tempor, massa erat dictum felis, ac accumsan odio tellus eget justo. Cras nibh nulla, accumsan a elementum eu, dictum ut orci. Donec vitae nibh erat, sed tincidunt dolor. Vivamus nisi orci, scelerisque et pharetra in, lobortis in est.', 0, '2009-06-23 15:23:55', '2009-06-23 15:23:55');
@@ -106,5 +106,5 @@ ALTER TABLE `discuss_posts`
 -- Constraints for table `discuss_topics`
 --
 ALTER TABLE `discuss_topics`
-  ADD CONSTRAINT `fk_discuss_topics_discuss_categories` FOREIGN KEY (`discuss_category_id`) REFERENCES `discuss_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_discuss_topics_discuss_forums` FOREIGN KEY (`discuss_forum_id`) REFERENCES `discuss_forums` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
