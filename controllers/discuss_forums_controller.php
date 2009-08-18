@@ -1,14 +1,33 @@
 <?php
 class DiscussForumsController extends DiscussAppController {
+
 	var $name = 'DiscussForums';
 	
 	function index() {
-		$this->data = $this->DiscussForum->find('all', array(
-			'contain' => array('DiscussTopic'),
-			'order' => 'id ASC',
+		$forums = $this->DiscussForum->generatetreelist(null, null, null, '&nbsp;&nbsp;&nbsp;');
+		
+		$this->set(compact('forums'));
+	}
+	
+	function view($id = null) {
+		if(!$id) {
+			$this->Session->setFlash('Invalid Forum!');
+			$this->redirect('/discuss/discuss_forums');
+		}
+		$forum = $this->DiscussForum->find('first', array(
+			'conditions' => array('DiscussForum.id' => $id),
+			'contain' => array(
+				'DiscussTopic' => array(
+					'limit' => 1,
+					'order' => 'DiscussPost.created DESC',
+					'DiscussPost.created'
+				)
+			)
 		));
 		
-		$latestPosts = array();
+		$this->set(compact('forum'));
+		
+		/*$latestPosts = array();
 		foreach ($this->data as $key => $forum) {
 			foreach ($forum['DiscussTopic'] as $topic) {
 				$latestPosts[$topic['id']] = $this->DiscussForum->DiscussTopic->DiscussPost->find('first', array(
@@ -30,7 +49,8 @@ class DiscussForumsController extends DiscussAppController {
 			}
 		}
 		
-		$this->set(compact('latestPosts'));
+		$this->set(compact('latestPosts'));*/
 	}
+	
 }
 ?>

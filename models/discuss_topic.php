@@ -10,7 +10,8 @@ class DiscussTopic extends DiscussAppModel {
 			'foreignKey' => 'discuss_forum_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
 		)
 	);
 

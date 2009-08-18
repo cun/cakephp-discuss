@@ -1,4 +1,4 @@
-<h2><?php echo $this->data['DiscussPost']['title']; ?></h2>
+<h2><?php echo $post['DiscussPost']['title']; ?></h2>
 <div style="border-bottom: 1px solid black;"></div>
 <div id="postUser<?php echo $this->data['DiscussPost']['id']; ?>" class="discussPostDetailsUser">
 	<?php echo $html->image('http://www.gravatar.com/avatar/' . md5($this->data['User']['email']) . '.jpg'); ?><br/>
@@ -20,7 +20,7 @@
 </div>
 <div style="clear: both"></div>
 
-<?php foreach ($this->data['Reply'] as $post): ?>
+<?php foreach ($post['Reply'] as $post): ?>
 <div style="border-bottom: 1px solid black;"></div>
 <div id="postLastReply<?php echo $post['id']; ?>" class="discussPostDetailsUser">
 	<?php echo $html->image('http://www.gravatar.com/avatar/' . md5($post['User']['email']) . '.jpg'); ?><br/>
